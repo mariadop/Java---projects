@@ -1,0 +1,14 @@
+    public static void quick(int[] a, int start, int pivot) {
+        if (start >= pivot) return;
+        int i = start - 1;
+        for (int j = start; j < pivot; j++) {
+            if (a[j] <= a[pivot]) {
+                i++;
+                swap(a, i, j);
+            }
+        }
+        i++;
+        swap(a, i, pivot);
+        quick(a, start, i - 1);
+        quick(a, i + 1, pivot);
+    }
